@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html ng-app="GetServiceWeb">
+<head>
+    <title>GetService Web</title>
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/css/site.css" rel="stylesheet" />
+    <link href="content/css/loading-bar.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation" ng-controller="indexController">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#/">Home</a>
+                </li>
+                <li ng-show="authentication.isAuth">
+                    <a href="#/estados">Estados</a>
+                </li>
+                <li ng-show="authentication.isAuth">
+                    <a href="#/cidades">Cidades</a>
+                </li>
+                <li ng-show="authentication.isAuth">
+                    <a href="#/categorias">Categorias</a>
+                </li>
+                <li ng-show="authentication.isAuth">
+                    <a href="#/subCategorias">SubCategorias</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-show="authentication.isAuth">
+                    <a href="#">Bem vindo! {{authentication.userName}}</a>
+                </li>
+                <li ng-show="authentication.isAuth">
+                    <a href="" ng-click="logOut()">Logout</a>
+                </li>
+                <li ng-show="!authentication.isAuth">
+                    <a href="#/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-view="">
+        </div>
+    </div>
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-resource.min.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/services/authInterceptorService.js"></script>
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/estadosService.js"></script>
+    <script src="app/services/cidadesService.js"></script>
+    <script src="app/services/categoriasService.js"></script>
+    <script src="app/services/subCategoriasService.js"></script>
+
+    <script src="app/controllers/indexController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/estadosController.js"></script>
+    <script src="app/controllers/cidadesController.js"></script>
+    <script src="app/controllers/categoriasController.js"></script>
+    <script src="app/controllers/subCategoriasController.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿<button class="btn btn-default" onclick="history.back(-1)">Voltar</button>
+<form name="formEstado" class="form-login" role="form">
+    <h2 class="form-login-heading">Estado</h2>
+    <input type="text" class="form-control" placeholder="Nome" ng-model="estado.nome" required autofocus>
+    <br />
+    <input type="text" maxlength="2" pattern=".{2,2}" class="form-control" placeholder="Sigla" ng-model="estado.uf" required>
+    <br />
+    <button ng-disabled="!formEstado.$valid" class="btn btn-lg btn-info btn-block" type="submit" ng-click="salvar()">Salvar</button>
+    <br />
+    <div ng-show="mensagem != ''" class="alert alert-danger">
+        {{ mensagem }}
+    </div>
+</form>
